@@ -42,6 +42,19 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
     const element = exportRef.current
     console.log("[v0] Element dimensions:", element.offsetWidth, "x", element.offsetHeight)
 
+    const actualHeight = element.scrollHeight
+    const actualWidth = element.scrollWidth
+    const minWidth = 600
+    const minHeight = 800
+    const maxWidth = 1200
+    const maxHeight = 1600
+
+    // Use actual dimensions but ensure minimum sizes and reasonable maximums
+    const canvasWidth = Math.max(minWidth, Math.min(maxWidth, actualWidth))
+    const canvasHeight = Math.max(minHeight, Math.min(maxHeight, actualHeight))
+
+    console.log("[v0] Dynamic canvas dimensions:", canvasWidth, "x", canvasHeight)
+
     const canvas = await html2canvas(element, {
       scale: 2,
       backgroundColor: "#ffffff",
@@ -49,17 +62,16 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
       allowTaint: false,
       foreignObjectRendering: false,
       logging: true,
-      width: 600,
-      height: 800,
+      width: canvasWidth,
+      height: canvasHeight,
       onclone: (clonedDoc) => {
         console.log("[v0] Cloning element for canvas...")
 
         // Find the export element in cloned document
         const exportElement = clonedDoc.querySelector("[data-export-ref]") as HTMLElement
         if (exportElement) {
-          // Force fixed dimensions and styling
-          exportElement.style.width = "600px"
-          exportElement.style.height = "800px"
+          exportElement.style.width = `${canvasWidth}px`
+          exportElement.style.height = `${canvasHeight}px`
           exportElement.style.position = "relative"
           exportElement.style.display = "flex"
           exportElement.style.flexDirection = "column"
@@ -108,12 +120,14 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
             ;(title as HTMLElement).style.marginBottom = "40px"
           }
 
-          // Style content lines
           const contentDiv = exportElement.querySelector(".space-y-1, .space-y-2")
           if (contentDiv) {
             ;(contentDiv as HTMLElement).style.fontSize = "20px"
             ;(contentDiv as HTMLElement).style.lineHeight = "1.8"
             ;(contentDiv as HTMLElement).style.marginBottom = "40px"
+            ;(contentDiv as HTMLElement).style.maxWidth = `${canvasWidth - 120}px`
+            ;(contentDiv as HTMLElement).style.wordWrap = "break-word"
+            ;(contentDiv as HTMLElement).style.overflowWrap = "break-word"
           }
 
           console.log("[v0] Applied styling to cloned element")
@@ -329,10 +343,11 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
                 <div
                   ref={exportRef}
                   data-export-ref="true"
-                  className={`w-full aspect-[3/4] ${selectedThemeData.bg} ${selectedThemeData.text} p-8 rounded-lg shadow-lg flex flex-col justify-center items-center text-center relative overflow-hidden`}
+                  className={`w-full ${selectedThemeData.bg} ${selectedThemeData.text} p-8 rounded-lg shadow-lg flex flex-col justify-center items-center text-center relative overflow-hidden`}
                   style={{
                     fontFamily: "Playfair Display, serif",
                     minHeight: "400px",
+                    height: "auto",
                   }}
                 >
                   {/* Decorative elements */}
@@ -342,7 +357,7 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
                   <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-current opacity-30"></div>
 
                   {/* Content */}
-                  <div className="space-y-6 max-w-md px-4">
+                  <div className="space-y-6 max-w-md px-4 py-8">
                     <h1 className="font-playfair text-2xl font-bold break-words">{shayari.title}</h1>
                     <div className="space-y-2 font-playfair text-lg leading-relaxed">
                       {shayari.content.split("\n").map((line, index) => (
