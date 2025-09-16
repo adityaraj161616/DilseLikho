@@ -30,21 +30,111 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
 
   const selectedThemeData = themes.find((t) => t.value === selectedTheme) || themes[0]
 
-  const exportAsPDF = async () => {
-    if (!exportRef.current) return
+  const createCanvas = async () => {
+    if (!exportRef.current) throw new Error("Export element not found")
 
+    console.log("[v0] Starting canvas creation...")
+
+    // Wait for fonts to load
+    await document.fonts.ready
+    await new Promise((resolve) => setTimeout(resolve, 500))
+
+    const element = exportRef.current
+    console.log("[v0] Element dimensions:", element.offsetWidth, "x", element.offsetHeight)
+
+    const canvas = await html2canvas(element, {
+      scale: 2,
+      backgroundColor: "#ffffff",
+      useCORS: true,
+      allowTaint: false,
+      foreignObjectRendering: false,
+      logging: true,
+      width: 600,
+      height: 800,
+      onclone: (clonedDoc) => {
+        console.log("[v0] Cloning element for canvas...")
+
+        // Find the export element in cloned document
+        const exportElement = clonedDoc.querySelector("[data-export-ref]") as HTMLElement
+        if (exportElement) {
+          // Force fixed dimensions and styling
+          exportElement.style.width = "600px"
+          exportElement.style.height = "800px"
+          exportElement.style.position = "relative"
+          exportElement.style.display = "flex"
+          exportElement.style.flexDirection = "column"
+          exportElement.style.justifyContent = "center"
+          exportElement.style.alignItems = "center"
+          exportElement.style.textAlign = "center"
+          exportElement.style.padding = "60px"
+          exportElement.style.fontFamily = "Playfair Display, serif"
+          exportElement.style.fontSize = "18px"
+          exportElement.style.lineHeight = "1.6"
+          exportElement.style.color =
+            selectedTheme === "classic"
+              ? "#92400e"
+              : selectedTheme === "romantic"
+                ? "#881337"
+                : selectedTheme === "elegant"
+                  ? "#0f172a"
+                  : "#064e3b"
+
+          // Set background based on theme
+          if (selectedTheme === "classic") {
+            exportElement.style.background = "linear-gradient(to bottom right, #fef3c7, #fde68a)"
+          } else if (selectedTheme === "romantic") {
+            exportElement.style.background = "linear-gradient(to bottom right, #fdf2f8, #fce7f3)"
+          } else if (selectedTheme === "elegant") {
+            exportElement.style.background = "linear-gradient(to bottom right, #f8fafc, #f1f5f9)"
+          } else {
+            exportElement.style.background = "linear-gradient(to bottom right, #ecfdf5, #d1fae5)"
+          }
+
+          // Style all child elements
+          const allElements = exportElement.querySelectorAll("*")
+          allElements.forEach((el) => {
+            const element = el as HTMLElement
+            element.style.fontFamily = "Playfair Display, serif"
+            element.style.color = "inherit"
+            element.style.visibility = "visible"
+            element.style.opacity = "1"
+          })
+
+          // Style title
+          const title = exportElement.querySelector("h1")
+          if (title) {
+            ;(title as HTMLElement).style.fontSize = "32px"
+            ;(title as HTMLElement).style.fontWeight = "bold"
+            ;(title as HTMLElement).style.marginBottom = "40px"
+          }
+
+          // Style content lines
+          const contentDiv = exportElement.querySelector(".space-y-1, .space-y-2")
+          if (contentDiv) {
+            ;(contentDiv as HTMLElement).style.fontSize = "20px"
+            ;(contentDiv as HTMLElement).style.lineHeight = "1.8"
+            ;(contentDiv as HTMLElement).style.marginBottom = "40px"
+          }
+
+          console.log("[v0] Applied styling to cloned element")
+        }
+      },
+    })
+
+    console.log("[v0] Canvas created:", canvas.width, "x", canvas.height)
+
+    if (canvas.width === 0 || canvas.height === 0) {
+      throw new Error("Canvas has no content - check element visibility and styling")
+    }
+
+    return canvas
+  }
+
+  const exportAsPDF = async () => {
     setIsExporting(true)
     try {
-      const canvas = await html2canvas(exportRef.current, {
-        scale: window.devicePixelRatio || 2,
-        backgroundColor: null,
-        useCORS: true,
-        allowTaint: true,
-        foreignObjectRendering: true,
-        logging: false,
-        width: exportRef.current.offsetWidth,
-        height: exportRef.current.offsetHeight,
-      })
+      console.log("[v0] Starting PDF export...")
+      const canvas = await createCanvas()
 
       const imgData = canvas.toDataURL("image/png", 1.0)
       const pdf = new jsPDF({
@@ -56,31 +146,22 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
       const imgWidth = 210
       const pageHeight = 295
       const imgHeight = (canvas.height * imgWidth) / canvas.width
-      let heightLeft = imgHeight
 
-      let position = 0
-
-      pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight)
-      heightLeft -= pageHeight
-
-      while (heightLeft >= 0) {
-        position = heightLeft - imgHeight
-        pdf.addPage()
-        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight)
-        heightLeft -= pageHeight
-      }
+      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight)
 
       const fileName = shayari.title.replace(/[^a-zA-Z0-9\s]/g, "").replace(/\s+/g, "_") || "shayari"
       pdf.save(`${fileName}.pdf`)
+
+      console.log("[v0] PDF exported successfully")
       toast({
         title: "Success!",
         description: "Shayari exported as PDF successfully",
       })
     } catch (error) {
-      console.error("Error exporting PDF:", error)
+      console.error("[v0] Error exporting PDF:", error)
       toast({
         title: "Error",
-        description: "Failed to export PDF. Please try again.",
+        description: `Failed to export PDF: ${(error as Error).message}`,
         variant: "destructive",
       })
     } finally {
@@ -89,20 +170,10 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
   }
 
   const exportAsImage = async () => {
-    if (!exportRef.current) return
-
     setIsExporting(true)
     try {
-      const canvas = await html2canvas(exportRef.current, {
-        scale: window.devicePixelRatio || 2,
-        backgroundColor: null,
-        useCORS: true,
-        allowTaint: true,
-        foreignObjectRendering: true,
-        logging: false,
-        width: exportRef.current.offsetWidth,
-        height: exportRef.current.offsetHeight,
-      })
+      console.log("[v0] Starting JPG export...")
+      const canvas = await createCanvas()
 
       canvas.toBlob(
         (blob) => {
@@ -111,28 +182,29 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
             const a = document.createElement("a")
             a.href = url
             const fileName = shayari.title.replace(/[^a-zA-Z0-9\s]/g, "").replace(/\s+/g, "_") || "shayari"
-            a.download = `${fileName}.png`
+            a.download = `${fileName}.jpg`
             document.body.appendChild(a)
             a.click()
             document.body.removeChild(a)
             URL.revokeObjectURL(url)
 
+            console.log("[v0] JPG exported successfully")
             toast({
               title: "Success!",
-              description: "Shayari exported as image successfully",
+              description: "Shayari exported as JPG successfully",
             })
           } else {
             throw new Error("Failed to create image blob")
           }
         },
-        "image/png",
-        1.0,
+        "image/jpeg",
+        0.95,
       )
     } catch (error) {
-      console.error("Error exporting image:", error)
+      console.error("[v0] Error exporting image:", error)
       toast({
         title: "Error",
-        description: "Failed to export image. Please try again.",
+        description: `Failed to export image: ${(error as Error).message}`,
         variant: "destructive",
       })
     } finally {
@@ -141,20 +213,10 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
   }
 
   const shareAsImage = async () => {
-    if (!exportRef.current) return
-
     setIsExporting(true)
     try {
-      const canvas = await html2canvas(exportRef.current, {
-        scale: window.devicePixelRatio || 2,
-        backgroundColor: null,
-        useCORS: true,
-        allowTaint: true,
-        foreignObjectRendering: true,
-        logging: false,
-        width: exportRef.current.offsetWidth,
-        height: exportRef.current.offsetHeight,
-      })
+      console.log("[v0] Starting share...")
+      const canvas = await createCanvas()
 
       canvas.toBlob(
         async (blob) => {
@@ -162,7 +224,7 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
             const fileName = shayari.title.replace(/[^a-zA-Z0-9\s]/g, "").replace(/\s+/g, "_") || "shayari"
 
             if (navigator.share && navigator.canShare) {
-              const file = new File([blob], `${fileName}.png`, { type: "image/png" })
+              const file = new File([blob], `${fileName}.jpg`, { type: "image/jpeg" })
               if (navigator.canShare({ files: [file] })) {
                 try {
                   await navigator.share({
@@ -176,12 +238,12 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
                   })
                 } catch (error) {
                   if ((error as Error).name !== "AbortError") {
-                    console.log("Error sharing:", error)
+                    console.log("[v0] Error sharing:", error)
                     // Fallback to download
                     const url = URL.createObjectURL(blob)
                     const a = document.createElement("a")
                     a.href = url
-                    a.download = `${fileName}.png`
+                    a.download = `${fileName}.jpg`
                     document.body.appendChild(a)
                     a.click()
                     document.body.removeChild(a)
@@ -189,17 +251,17 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
 
                     toast({
                       title: "Downloaded!",
-                      description: "Image downloaded. You can now share it manually.",
+                      description: "Image downloaded as JPG. You can now share it manually.",
                     })
                   }
                 }
               }
             } else {
-              // Fallback: download the image
+              // Fallback to download
               const url = URL.createObjectURL(blob)
               const a = document.createElement("a")
               a.href = url
-              a.download = `${fileName}.png`
+              a.download = `${fileName}.jpg`
               document.body.appendChild(a)
               a.click()
               document.body.removeChild(a)
@@ -207,21 +269,21 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
 
               toast({
                 title: "Downloaded!",
-                description: "Image downloaded. You can now share it manually.",
+                description: "Image downloaded as JPG. You can now share it manually.",
               })
             }
           } else {
             throw new Error("Failed to create image blob")
           }
         },
-        "image/png",
-        1.0,
+        "image/jpeg",
+        0.95,
       )
     } catch (error) {
-      console.error("Error sharing image:", error)
+      console.error("[v0] Error sharing image:", error)
       toast({
         title: "Error",
-        description: "Failed to share image. Please try again.",
+        description: `Failed to share image: ${(error as Error).message}`,
         variant: "destructive",
       })
     } finally {
@@ -266,25 +328,30 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
               <div className="border rounded-lg p-2 sm:p-4 bg-gray-50 dark:bg-gray-900">
                 <div
                   ref={exportRef}
-                  className={`w-full aspect-[3/4] ${selectedThemeData.bg} ${selectedThemeData.text} p-4 sm:p-8 rounded-lg shadow-lg flex flex-col justify-center items-center text-center relative overflow-hidden`}
+                  data-export-ref="true"
+                  className={`w-full aspect-[3/4] ${selectedThemeData.bg} ${selectedThemeData.text} p-8 rounded-lg shadow-lg flex flex-col justify-center items-center text-center relative overflow-hidden`}
+                  style={{
+                    fontFamily: "Playfair Display, serif",
+                    minHeight: "400px",
+                  }}
                 >
                   {/* Decorative elements */}
-                  <div className="absolute top-2 left-2 sm:top-4 sm:left-4 w-4 h-4 sm:w-8 sm:h-8 border-l-2 border-t-2 border-current opacity-30"></div>
-                  <div className="absolute top-2 right-2 sm:top-4 sm:right-4 w-4 h-4 sm:w-8 sm:h-8 border-r-2 border-t-2 border-current opacity-30"></div>
-                  <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 w-4 h-4 sm:w-8 sm:h-8 border-l-2 border-b-2 border-current opacity-30"></div>
-                  <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 w-4 h-4 sm:w-8 sm:h-8 border-r-2 border-b-2 border-current opacity-30"></div>
+                  <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-current opacity-30"></div>
+                  <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-current opacity-30"></div>
+                  <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-current opacity-30"></div>
+                  <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-current opacity-30"></div>
 
                   {/* Content */}
-                  <div className="space-y-3 sm:space-y-6 max-w-xs sm:max-w-md px-2">
-                    <h1 className="font-playfair text-lg sm:text-2xl font-bold break-words">{shayari.title}</h1>
-                    <div className="space-y-1 sm:space-y-2 font-playfair text-sm sm:text-lg leading-relaxed">
+                  <div className="space-y-6 max-w-md px-4">
+                    <h1 className="font-playfair text-2xl font-bold break-words">{shayari.title}</h1>
+                    <div className="space-y-2 font-playfair text-lg leading-relaxed">
                       {shayari.content.split("\n").map((line, index) => (
                         <div key={index} className="break-words">
                           {line.trim() || <br />}
                         </div>
                       ))}
                     </div>
-                    <div className="text-xs sm:text-sm opacity-70">
+                    <div className="text-sm opacity-70">
                       {new Date(shayari.createdAt).toLocaleDateString("en-IN", {
                         year: "numeric",
                         month: "long",
@@ -294,7 +361,7 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
                   </div>
 
                   {/* Branding */}
-                  <div className="absolute bottom-2 sm:bottom-6 text-xs opacity-50">Dil Se Likho</div>
+                  <div className="absolute bottom-6 text-xs opacity-50">Dil Se Likho</div>
                 </div>
               </div>
             </div>
@@ -322,7 +389,7 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
                     className="w-full bg-transparent h-12 sm:h-14 text-sm sm:text-base"
                   >
                     <ImageIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                    {isExporting ? "Exporting..." : "Download as Image"}
+                    {isExporting ? "Exporting..." : "Download as JPG"}
                   </Button>
 
                   <Button
@@ -332,7 +399,7 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
                     className="w-full bg-transparent h-12 sm:h-14 text-sm sm:text-base"
                   >
                     <Share className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                    {isExporting ? "Sharing..." : "Share as Image"}
+                    {isExporting ? "Sharing..." : "Share as JPG"}
                   </Button>
                 </CardContent>
               </Card>
@@ -343,7 +410,7 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
                 </CardHeader>
                 <CardContent className="space-y-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                   <p>• PDF exports are perfect for printing and archiving</p>
-                  <p>• Image exports are great for social media sharing</p>
+                  <p>• JPG exports are great for social media sharing</p>
                   <p>• All exports include your Shayari with beautiful typography</p>
                   <p>• Choose different themes to match your mood</p>
                 </CardContent>

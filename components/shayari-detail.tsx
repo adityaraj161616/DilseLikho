@@ -150,70 +150,85 @@ export function ShayariDetail({ shayariId }: ShayariDetailProps) {
   return (
     <div className={`min-h-screen bg-gradient-to-br ${backgroundClass}`}>
       {/* Header */}
-      <header className="p-6 flex justify-between items-center">
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" onClick={() => router.push("/dashboard")} className="ink-drop">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Dashboard
+      <header className="p-3 sm:p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">
+        <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto">
+          <Button
+            variant="ghost"
+            onClick={() => router.push("/dashboard")}
+            className="ink-drop text-xs sm:text-sm p-2 sm:p-3"
+          >
+            <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+            <span className="hidden xs:inline">Back to Dashboard</span>
+            <span className="xs:hidden">Back</span>
           </Button>
           <Logo />
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2 w-full sm:w-auto justify-end flex-wrap">
           <ExportOptions shayari={shayari} />
-          <Button variant="outline" onClick={handleShare}>
-            <Share className="w-4 h-4 mr-2" />
-            Share
+          <Button
+            variant="outline"
+            onClick={handleShare}
+            className="text-xs sm:text-sm p-2 sm:p-3 min-w-0 bg-transparent"
+          >
+            <Share className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+            <span className="hidden sm:inline">Share</span>
           </Button>
-          <Button variant="outline" onClick={() => router.push(`/editor/${shayari._id}`)}>
-            <Edit className="w-4 h-4 mr-2" />
-            Edit
+          <Button
+            variant="outline"
+            onClick={() => router.push(`/editor/${shayari._id}`)}
+            className="text-xs sm:text-sm p-2 sm:p-3 min-w-0"
+          >
+            <Edit className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+            <span className="hidden sm:inline">Edit</span>
           </Button>
           <AuthButton />
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-6 py-8">
+      <main className="container mx-auto px-3 sm:px-6 py-4 sm:py-8">
         <div className="max-w-4xl mx-auto">
           <Card className="glassmorphism shadow-2xl">
-            <CardHeader className="text-center pb-6">
-              <div className="flex justify-center items-center gap-4 mb-4">
+            <CardHeader className="text-center pb-4 sm:pb-6 px-4 sm:px-6">
+              <div className="flex justify-center items-center gap-2 sm:gap-4 mb-3 sm:mb-4 flex-wrap">
                 {shayari.mood && (
-                  <Badge className={moodColors[shayari.mood as keyof typeof moodColors] || "bg-gray-100 text-gray-800"}>
+                  <Badge
+                    className={`text-xs sm:text-sm ${moodColors[shayari.mood as keyof typeof moodColors] || "bg-gray-100 text-gray-800"}`}
+                  >
                     {moodLabels[shayari.mood as keyof typeof moodLabels] || shayari.mood}
                   </Badge>
                 )}
                 {shayari.isFavorite && (
-                  <Badge variant="outline" className="text-primary border-primary">
-                    <Heart className="w-3 h-3 mr-1 fill-current" />
+                  <Badge variant="outline" className="text-primary border-primary text-xs sm:text-sm">
+                    <Heart className="w-2 h-2 sm:w-3 sm:h-3 mr-1 fill-current" />
                     Favorite
                   </Badge>
                 )}
                 {shayari.isSecret && (
-                  <Badge variant="outline" className="text-gray-600 dark:text-gray-400">
-                    <Lock className="w-3 h-3 mr-1" />
+                  <Badge variant="outline" className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">
+                    <Lock className="w-2 h-2 sm:w-3 sm:h-3 mr-1" />
                     Secret
                   </Badge>
                 )}
               </div>
-              <CardTitle className="font-playfair text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100">
+              <CardTitle className="font-playfair text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-100 px-2">
                 {shayari.title}
               </CardTitle>
             </CardHeader>
-            <CardContent className="px-8 pb-8">
+            <CardContent className="px-4 sm:px-6 lg:px-8 pb-6 sm:pb-8">
               <div
                 ref={contentRef}
-                className="text-center space-y-4 mb-8 font-playfair text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-300"
+                className="text-center space-y-3 sm:space-y-4 mb-6 sm:mb-8 font-playfair text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-700 dark:text-gray-300 px-2"
               >
                 {shayari.content.split("\n").map((line, index) => (
-                  <div key={index} className="shayari-line">
+                  <div key={index} className="shayari-line break-words">
                     {line.trim() || <br />}
                   </div>
                 ))}
               </div>
 
-              <div className="border-t pt-6 space-y-4 text-sm text-gray-500 dark:text-gray-400">
-                <div className="flex justify-between items-center">
+              <div className="border-t pt-4 sm:pt-6 space-y-2 sm:space-y-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
                   <span>Created: {formatDate(shayari.createdAt)}</span>
                   {shayari.updatedAt !== shayari.createdAt && <span>Last edited: {formatDate(shayari.updatedAt)}</span>}
                 </div>
