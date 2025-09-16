@@ -26,7 +26,7 @@ Hawas k libaz m jhutha pyr dikhakr,
 Hume u jeetna chahte ho,
 Aree jao miya hum woh nhi jiske saath tum har raat bitate ho...`,
     mood: "sad",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 2,
@@ -44,7 +44,7 @@ Toh aafat ka naam kehlate ho
 Jaan .... Nhi hota toh ab keh bhi do,
 Q iss rishte ka bojh uthate ho......`,
     mood: "sad",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 3,
@@ -63,7 +63,7 @@ Or suno
 Suna h woh bhi bhut mohobbat krte h tumhse
 Kaho iss bar unnke pyr ka janaja uthwaoge ky........`,
     mood: "sad",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 4,
@@ -82,7 +82,7 @@ Isliye shayd ki ab usse meri zaroori nhi.
 Ha mana meine ki ab hu m kisi or ki,
 Iska mtlb yeh ki mujhe bhi khush hone ka thoda haq toh h hi.......`,
     mood: "sad",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 5,
@@ -96,7 +96,7 @@ siddat ki mohobbat krte h
 woh sene se laga le toh hum
 mukkamal ho jayenge....`,
     mood: "sad",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 6,
@@ -113,7 +113,7 @@ Hum hamesha sajenge tumhare liye...
 Kaho Tum hame dekhne aaoge ky
 Jaaaann ..yeh kuch wade h tumhe nibhane h kaho nibhaoge ky ......`,
     mood: "romantic",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 7,
@@ -123,7 +123,7 @@ Ek chai ki pyali sa ban jao na tum,
 Andheri is raat m bhul jau m sab kuch,...
 Toh aisa koi geet ban jao n tum....`,
     mood: "happy",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 8,
@@ -135,7 +135,7 @@ Jalti h duniya...Q ki hum na sunte unki bakwas h,...
 Pyar ka matlab shayd unhe pata nhi,...
 Q ki dikhaw e k rishte hamesha bina jazbaat h..`,
     mood: "philosophical",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 9,
@@ -144,7 +144,7 @@ Q ki dikhaw e k rishte hamesha bina jazbaat h..`,
 Kambakhta takleef toh hame ho rhi h jo...
 Wafadari se hamne nibhayi h`,
     mood: "sad",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 10,
@@ -165,7 +165,7 @@ Meine bhi agar Maan liya hame bhi mohobbat h unse...
 Toh lagta usse yeh sapne jaisa h
 Hayee tujhe kaise btau meri jaan tujsa mere naseeb m milna jaise sapne ka poora hone jaisa h`,
     mood: "romantic",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 11,
@@ -179,7 +179,7 @@ Agar pure hue toh Shiv Parvati...
 Or agar adhure hue toh Radha Krishna...
 Sanbhavtahh....`,
     mood: "philosophical",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 12,
@@ -190,7 +190,7 @@ Chahta toh cheeh lata tumhe...
 Magar tum dobara wapas mujhe pehle jaise milogi kha......
 Sushhh...`,
     mood: "sad",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 13,
@@ -214,7 +214,7 @@ Jo mujhe btaya pyaar m hota yeh sab toh easy lo
 Khtm na krna chahunga yeh rishta jo kehta wo...
 Or uski jid jo puri krti hui mein woh.....`,
     mood: "romantic",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 14,
@@ -227,7 +227,7 @@ Na hi majboori h
 Mana aaj smjha nhi mere pyaar ko usme...
 Pr kl ko tarsega yeh jaroori h.....`,
     mood: "romantic",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 15,
@@ -249,7 +249,7 @@ Ha wahi kehna tha,...
 Ky,,...
 Suno ruk skte ho......`,
     mood: "sad",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 16,
@@ -280,70 +280,70 @@ Tumhari khushi mujh me h mein janta hu...
 Is mohobbat ko meine adhoora rkha...
 Iska iljaam bhi sehna chahunga.......`,
     mood: "sad",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 17,
     title: "दुआ और बद्दुआ",
     content: `Hamari dua h tumhe ki har koi mile tumhe tumhare jaisa...\nMagar baddua hamesha yhi rhegi...\nKi kbhi na mile tujhe mere jaisa...\nMile toh honge hazar tujhe chahne wale...\nJinhe tune hamesha mujhse upr darja diya h...\nMagar dekhna ek din girayenge bhi woh tujhe...\nMujhe yeh bhi ptah\n\nMohobbat ko tarsega tu bhi...\nJaise mein maut ko tarsti aai hu...\nBhulungi mein bhi ni apni jawani...\nJisse tere khatir gawai hu...\nMile tujhe woh dua h meri yeh...\nTb toh pata chale tujhe...\nKi dua di thi meine mile tujhe tere jaisa...\nAur baddua m kbhi na mile tujhe mujhe jaisa`,
     mood: "sad",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 18,
     title: "महफूज़ रखा है",
     content: `Mehfooz rakha h meine tujhe aise...\nMeri khud ki parchhai bhi na padne du tujhpe...\nJism alag ho rha h har din rooh se meri...\nTeri ek didar ko tarasti yeh aakhein h...\nMaut ko chahti hu paana...\nPr mohobbat ki tarah kambakhat woh bhi...\nTarsa rhi mujhko h....`,
     mood: "sad",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 19,
     title: "बदल गए हैं हम",
     content: `Kuch aise bane h hum...\nTere jaane k baad...\nKisi k hone pr bhi hume khud pr shaq hone laga h...\nTu banaya tune mujhe iskadar...\nKi mere sachhe alfaaz bhi jhooth mujhe lagte h...\nMeri fitrat jo na thi kbhi kisi ko ajmane ki...\nWoh ab tere jaane k baad aai h...\nHamesha dil dimaag k pehle rakha meine...\nIsliye aankhe meri 100 baar tune jhutlaih...\nM hu iss kabil tujhe barbaad krne ko...\nMagar tujhe bhulne m`,
     mood: "sad",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 20,
     title: "बड़े ख्वाब",
     content: `Mere khwab bhut bade h...\nJanti hu warna tumhe paana toh dur...\nSochna bhi mere halaton m na tha...\nMagar yeh humne apne haathon k lakeeron m...\nNi dekha ki tujhe hum pakad bhi...\nKhone ki takat rkhte h.....`,
     mood: "philosophical",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 21,
     title: "सीने से लगाया है",
     content: `Lga rkha h seene se tumhe iss tarah...\nKe ab log aarhe h tumhari jagah iss...\nKafan ko odhane...\nMohobbat m pucha unhone meri lash se...\nKi mila kya tujhe......\nMeine bhi maun shabon m kaha...\nMera rakeeb aaya h mujhe dafnane....`,
     mood: "sad",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 22,
     title: "मंजिल की राह",
     content: `Chle ho uss raah pr tum jha manjil toh milegi...\nPr sukoon bhut peeche chorr aye ho...\nSab ki parwah krte krte khud ko tumhne jo chot pahuchai h\nAb manjil bhi tumhari h jindigi ki ummid jyada Mt rkhna……`,
     mood: "philosophical",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 23,
     title: "आंखों की तलाश",
     content: `Dekho tum na sahi...\nTumahri aakhein aaj bhi mujhe dhudhti h...\nBadal toh gye tum...\nMagar uss narjron ka ky kroge jo mujhe dhudhtui har shaqs pr h ….`,
     mood: "romantic",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 24,
     title: "रब से मांगना",
     content: `Tujhe kuch iss tarah maang rhi hu...\nKi rab sochta mujhe dekh rha h\nOr mein rote hue apni jholi failaye baithi hu\nUss rab ne daala toh meri jholi m tujhe aise...\nTu hokr bhi na hua jaise`,
     mood: "romantic",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
   {
     id: 25,
     title: "अधूरे या पूरे - दोबारा",
     content: `He - hum adhure rhengge ya pure\nShe - kyu achank ky hua tumhe\nHe - ni btao na adhure ya pure?\nShe - woh toh nhi malum mujhe...\nJitna mujhe maalum h woh h ki...\nAgar pure hue toh Shiv Parvati...\nOr agar adhure hue toh Radha Krishna...`,
     mood: "philosophical",
-    author: "Sushhh...🖤",
+    author: "Featured",
   },
 ]
 
