@@ -218,7 +218,7 @@ Or uski jid jo puri krti hui mein woh.....`,
     id: 14,
     title: "फिर मिलना",
     content: `Fir woh mujhe talashega...
-Or fir m usse mil jaungi, pyaar sirf ek hi h...
+ Or fir m usse mil jaungi, pyaar sirf ek hi h...
 Jo mein hi har baar nibhaungi...
 Uska saath nibhanna mera farz toh nhi...
 Na hi majboori h
@@ -528,65 +528,71 @@ export function Dashboard() {
           viewBox="0 0 24 24"
           fill="currentColor"
         >
-          <path d="M18,20H6V4H13V9H18V20Z" />
+          <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
         </svg>
       </div>
 
       <TopShayaris />
 
-      <main className="container mx-auto px-6 py-8 relative z-10">
-        <div ref={dashboardRef} className="space-y-8">
+      <main className="container mx-auto px-3 sm:px-6 py-4 sm:py-8 relative z-10">
+        <div ref={dashboardRef} className="space-y-6 sm:space-y-8">
           <div className="text-center relative">
             <div className="absolute inset-0 romantic-gradient rounded-3xl blur-3xl opacity-30"></div>
-            <div className="relative z-10 py-8">
-              <h1 className="font-playfair text-4xl md:text-6xl font-bold text-primary mb-4 shimmer-text">
+            <div className="relative z-10 py-6 sm:py-8">
+              <h1 className="font-playfair text-3xl sm:text-4xl md:text-6xl font-bold text-primary mb-4 shimmer-text">
                 Welcome back, {session?.user?.name?.split(" ")[0]}
               </h1>
-              <p className="text-xl text-muted-foreground mb-8 font-source-sans">
+              <p className="text-lg sm:text-xl text-muted-foreground mb-6 sm:mb-8 font-source-sans px-4">
                 Continue your poetic journey and explore your collection of Shayari
               </p>
               <div className="flex justify-center">
-                <Heart className="w-8 h-8 text-secondary pulse-heart" />
+                <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-secondary pulse-heart" />
               </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             <Card className="glassmorphism hover:shadow-2xl transition-all duration-500 border-2 border-primary/20 hover:border-primary/40 group">
-              <CardContent className="p-8 text-center relative overflow-hidden">
+              <CardContent className="p-6 sm:p-8 text-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
-                  <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <BookOpen className="w-10 h-10 text-white" />
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <BookOpen className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                   </div>
-                  <h3 className="text-3xl font-bold text-primary font-playfair mb-2">{stats.total}</h3>
-                  <p className="text-muted-foreground font-semibold font-source-sans">Total Shayaris</p>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-primary font-playfair mb-2">{stats.total}</h3>
+                  <p className="text-muted-foreground font-semibold font-source-sans text-sm sm:text-base">
+                    Total Shayaris
+                  </p>
                 </div>
               </CardContent>
             </Card>
 
             <Card className="glassmorphism hover:shadow-2xl transition-all duration-500 border-2 border-secondary/20 hover:border-secondary/40 group">
-              <CardContent className="p-8 text-center relative overflow-hidden">
+              <CardContent className="p-6 sm:p-8 text-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
-                  <div className="w-20 h-20 bg-gradient-to-br from-secondary to-secondary/80 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <Heart className="w-10 h-10 text-white pulse-heart" />
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary to-secondary/80 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Heart className="w-8 h-8 sm:w-10 sm:h-10 text-white pulse-heart" />
                   </div>
-                  <h3 className="text-3xl font-bold text-secondary font-playfair mb-2">{stats.favorites}</h3>
-                  <p className="text-muted-foreground font-semibold font-source-sans">Favorites</p>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-secondary font-playfair mb-2">
+                    {stats.favorites}
+                  </h3>
+                  <p className="text-muted-foreground font-semibold font-source-sans text-sm sm:text-base">Favorites</p>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="glassmorphism hover:shadow-2xl transition-all duration-500 border-2 border-primary/20 hover:border-primary/40 group">
-              <CardContent className="p-8 text-center relative overflow-hidden">
+            <Card className="glassmorphism hover:shadow-2xl transition-all duration-500 border-2 border-primary/20 hover:border-primary/40 group sm:col-span-2 lg:col-span-1">
+              <CardContent className="p-6 sm:p-8 text-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
-                  <div className="w-20 h-20 bg-gradient-to-br from-primary via-secondary to-primary rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <Sparkles className="w-10 h-10 text-white" />
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary via-secondary to-primary rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                   </div>
-                  <h3 className="text-3xl font-bold text-primary font-playfair mb-2">{stats.thisMonth}</h3>
-                  <p className="text-muted-foreground font-semibold font-source-sans">This Month</p>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-primary font-playfair mb-2">{stats.thisMonth}</h3>
+                  <p className="text-muted-foreground font-semibold font-source-sans text-sm sm:text-base">
+                    This Month
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -715,16 +721,16 @@ export function Dashboard() {
           </Dialog>
 
           <Card className="glassmorphism shadow-xl border-2 border-primary/20">
-            <CardHeader className="pb-4">
-              <CardTitle className="flex items-center gap-3 text-primary font-playfair text-xl sm:text-2xl">
-                <Filter className="w-5 sm:w-6 h-5 sm:h-6 text-secondary" />
+            <CardHeader className="pb-3 sm:pb-4">
+              <CardTitle className="flex items-center gap-2 sm:gap-3 text-primary font-playfair text-xl sm:text-2xl">
+                <Filter className="w-5 h-5 sm:w-6 sm:h-6 text-secondary" />
                 Filter & Search
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <div className="relative sm:col-span-2 lg:col-span-1">
-                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 sm:w-5 h-4 sm:h-5" />
+                  <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4 sm:w-5 sm:h-5" />
                   <Input
                     placeholder="Search your Shayaris..."
                     value={searchTerm}
@@ -738,19 +744,19 @@ export function Dashboard() {
                   </SelectTrigger>
                   <SelectContent className="bg-card border-2 border-border">
                     {moods.map((mood) => (
-                      <SelectItem key={mood.value} value={mood.value} className="font-source-sans text-sm sm:text-base">
+                      <SelectItem key={mood.value} value={mood.value} className="font-source-sans">
                         {mood.label}
                       </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 sm:col-span-2 lg:col-span-1">
+                <div className="flex gap-2 sm:gap-3 sm:col-span-2 lg:col-span-1">
                   <Button
                     variant={showFavorites ? "default" : "outline"}
                     onClick={() => setShowFavorites(!showFavorites)}
-                    className="flex-1 h-10 sm:h-12 font-source-sans font-semibold transition-all duration-300 hover:scale-105 text-sm sm:text-base"
+                    className="flex-1 h-10 sm:h-12 font-source-sans font-semibold transition-all duration-300 hover:scale-105 text-xs sm:text-sm"
                   >
-                    <Heart className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
+                    <Heart className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
                     <span className="hidden sm:inline">Favorites Only</span>
                     <span className="sm:hidden">Favorites</span>
                   </Button>
@@ -759,7 +765,7 @@ export function Dashboard() {
                     onClick={() => router.push("/calendar")}
                     className="h-10 sm:h-12 border-2 border-border hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 px-3 sm:px-4"
                   >
-                    <Calendar className="w-4 sm:w-5 h-4 sm:h-5 sm:mr-2" />
+                    <Calendar className="w-4 h-4 sm:w-5 sm:h-5 sm:mr-2" />
                     <span className="hidden sm:inline">Calendar</span>
                   </Button>
                 </div>

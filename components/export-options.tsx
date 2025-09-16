@@ -37,9 +37,10 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
     try {
       const canvas = await html2canvas(exportRef.current, {
         scale: window.devicePixelRatio || 2,
-        backgroundColor: "#ffffff",
+        backgroundColor: null,
         useCORS: true,
         allowTaint: true,
+        foreignObjectRendering: true,
         logging: false,
         width: exportRef.current.offsetWidth,
         height: exportRef.current.offsetHeight,
@@ -69,7 +70,8 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
         heightLeft -= pageHeight
       }
 
-      pdf.save(`${shayari.title.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.pdf`)
+      const fileName = shayari.title.replace(/[^a-zA-Z0-9\s]/g, "").replace(/\s+/g, "_") || "shayari"
+      pdf.save(`${fileName}.pdf`)
       toast({
         title: "Success!",
         description: "Shayari exported as PDF successfully",
@@ -93,9 +95,10 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
     try {
       const canvas = await html2canvas(exportRef.current, {
         scale: window.devicePixelRatio || 2,
-        backgroundColor: "#ffffff",
+        backgroundColor: null,
         useCORS: true,
         allowTaint: true,
+        foreignObjectRendering: true,
         logging: false,
         width: exportRef.current.offsetWidth,
         height: exportRef.current.offsetHeight,
@@ -107,7 +110,8 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
             const url = URL.createObjectURL(blob)
             const a = document.createElement("a")
             a.href = url
-            a.download = `${shayari.title.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.png`
+            const fileName = shayari.title.replace(/[^a-zA-Z0-9\s]/g, "").replace(/\s+/g, "_") || "shayari"
+            a.download = `${fileName}.png`
             document.body.appendChild(a)
             a.click()
             document.body.removeChild(a)
@@ -143,9 +147,10 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
     try {
       const canvas = await html2canvas(exportRef.current, {
         scale: window.devicePixelRatio || 2,
-        backgroundColor: "#ffffff",
+        backgroundColor: null,
         useCORS: true,
         allowTaint: true,
+        foreignObjectRendering: true,
         logging: false,
         width: exportRef.current.offsetWidth,
         height: exportRef.current.offsetHeight,
@@ -154,10 +159,10 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
       canvas.toBlob(
         async (blob) => {
           if (blob) {
+            const fileName = shayari.title.replace(/[^a-zA-Z0-9\s]/g, "").replace(/\s+/g, "_") || "shayari"
+
             if (navigator.share && navigator.canShare) {
-              const file = new File([blob], `${shayari.title.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.png`, {
-                type: "image/png",
-              })
+              const file = new File([blob], `${fileName}.png`, { type: "image/png" })
               if (navigator.canShare({ files: [file] })) {
                 try {
                   await navigator.share({
@@ -176,7 +181,7 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
                     const url = URL.createObjectURL(blob)
                     const a = document.createElement("a")
                     a.href = url
-                    a.download = `${shayari.title.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.png`
+                    a.download = `${fileName}.png`
                     document.body.appendChild(a)
                     a.click()
                     document.body.removeChild(a)
@@ -194,7 +199,7 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
               const url = URL.createObjectURL(blob)
               const a = document.createElement("a")
               a.href = url
-              a.download = `${shayari.title.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.png`
+              a.download = `${fileName}.png`
               document.body.appendChild(a)
               a.click()
               document.body.removeChild(a)
@@ -227,24 +232,25 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" className="ink-drop bg-transparent w-full sm:w-auto">
-          <Download className="w-4 h-4 mr-2" />
-          Export
+        <Button variant="outline" className="ink-drop bg-transparent text-sm sm:text-base">
+          <Download className="w-4 h-4 mr-1 sm:mr-2" />
+          <span className="hidden sm:inline">Export</span>
+          <span className="sm:hidden">Export</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="w-[95vw] max-w-6xl max-h-[95vh] overflow-hidden flex flex-col p-0">
-        <DialogHeader className="p-6 pb-0 flex-shrink-0">
-          <DialogTitle className="text-xl sm:text-2xl">Export Your Shayari</DialogTitle>
+      <DialogContent className="w-[95vw] max-w-6xl h-[95vh] max-h-[95vh] overflow-hidden flex flex-col p-3 sm:p-6">
+        <DialogHeader className="flex-shrink-0 pb-2 sm:pb-4">
+          <DialogTitle className="text-lg sm:text-xl">Export Your Shayari</DialogTitle>
         </DialogHeader>
 
-        <div className="flex-1 overflow-y-auto p-6">
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+        <div className="flex-1 overflow-y-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 h-full">
             {/* Preview Section */}
-            <div className="space-y-4 order-2 xl:order-1">
+            <div className="space-y-3 sm:space-y-4 order-2 lg:order-1">
               <div>
                 <label className="text-sm font-medium mb-2 block">Choose Theme</label>
                 <Select value={selectedTheme} onValueChange={setSelectedTheme}>
-                  <SelectTrigger className="w-full">
+                  <SelectTrigger className="h-10 sm:h-12">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -260,20 +266,22 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
               <div className="border rounded-lg p-2 sm:p-4 bg-gray-50 dark:bg-gray-900">
                 <div
                   ref={exportRef}
-                  className={`w-full max-w-sm mx-auto aspect-[3/4] ${selectedThemeData.bg} ${selectedThemeData.text} p-4 sm:p-8 rounded-lg shadow-lg flex flex-col justify-center items-center text-center relative overflow-hidden`}
+                  className={`w-full aspect-[3/4] ${selectedThemeData.bg} ${selectedThemeData.text} p-4 sm:p-8 rounded-lg shadow-lg flex flex-col justify-center items-center text-center relative overflow-hidden`}
                 >
                   {/* Decorative elements */}
-                  <div className="absolute top-2 sm:top-4 left-2 sm:left-4 w-6 sm:w-8 h-6 sm:h-8 border-l-2 border-t-2 border-current opacity-30"></div>
-                  <div className="absolute top-2 sm:top-4 right-2 sm:right-4 w-6 sm:w-8 h-6 sm:h-8 border-r-2 border-t-2 border-current opacity-30"></div>
-                  <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 w-6 sm:w-8 h-6 sm:h-8 border-l-2 border-b-2 border-current opacity-30"></div>
-                  <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 w-6 sm:w-8 h-6 sm:h-8 border-r-2 border-b-2 border-current opacity-30"></div>
+                  <div className="absolute top-2 left-2 sm:top-4 sm:left-4 w-4 h-4 sm:w-8 sm:h-8 border-l-2 border-t-2 border-current opacity-30"></div>
+                  <div className="absolute top-2 right-2 sm:top-4 sm:right-4 w-4 h-4 sm:w-8 sm:h-8 border-r-2 border-t-2 border-current opacity-30"></div>
+                  <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 w-4 h-4 sm:w-8 sm:h-8 border-l-2 border-b-2 border-current opacity-30"></div>
+                  <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 w-4 h-4 sm:w-8 sm:h-8 border-r-2 border-b-2 border-current opacity-30"></div>
 
                   {/* Content */}
                   <div className="space-y-3 sm:space-y-6 max-w-xs sm:max-w-md px-2">
-                    <h1 className="font-playfair text-lg sm:text-2xl font-bold leading-tight">{shayari.title}</h1>
-                    <div className="space-y-1 sm:space-y-2 font-playfair text-sm sm:text-lg leading-relaxed max-h-48 sm:max-h-64 overflow-y-auto">
+                    <h1 className="font-playfair text-lg sm:text-2xl font-bold break-words">{shayari.title}</h1>
+                    <div className="space-y-1 sm:space-y-2 font-playfair text-sm sm:text-lg leading-relaxed">
                       {shayari.content.split("\n").map((line, index) => (
-                        <div key={index}>{line.trim() || <br />}</div>
+                        <div key={index} className="break-words">
+                          {line.trim() || <br />}
+                        </div>
                       ))}
                     </div>
                     <div className="text-xs sm:text-sm opacity-70">
@@ -292,18 +300,18 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
             </div>
 
             {/* Export Options Section */}
-            <div className="space-y-4 order-1 xl:order-2">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg sm:text-xl">Export Options</CardTitle>
+            <div className="space-y-3 sm:space-y-4 order-1 lg:order-2">
+              <Card className="h-fit">
+                <CardHeader className="pb-3 sm:pb-4">
+                  <CardTitle className="text-base sm:text-lg">Export Options</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 sm:space-y-4">
                   <Button
                     onClick={exportAsPDF}
                     disabled={isExporting}
-                    className="w-full ink-drop h-12 text-sm sm:text-base"
+                    className="w-full ink-drop h-12 sm:h-14 text-sm sm:text-base"
                   >
-                    <FileText className="w-4 h-4 mr-2" />
+                    <FileText className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                     {isExporting ? "Exporting..." : "Download as PDF"}
                   </Button>
 
@@ -311,9 +319,9 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
                     onClick={exportAsImage}
                     disabled={isExporting}
                     variant="outline"
-                    className="w-full bg-transparent h-12 text-sm sm:text-base"
+                    className="w-full bg-transparent h-12 sm:h-14 text-sm sm:text-base"
                   >
-                    <ImageIcon className="w-4 h-4 mr-2" />
+                    <ImageIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                     {isExporting ? "Exporting..." : "Download as Image"}
                   </Button>
 
@@ -321,17 +329,17 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
                     onClick={shareAsImage}
                     disabled={isExporting}
                     variant="outline"
-                    className="w-full bg-transparent h-12 text-sm sm:text-base"
+                    className="w-full bg-transparent h-12 sm:h-14 text-sm sm:text-base"
                   >
-                    <Share className="w-4 h-4 mr-2" />
+                    <Share className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                     {isExporting ? "Sharing..." : "Share as Image"}
                   </Button>
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg sm:text-xl">Export Details</CardTitle>
+              <Card className="h-fit">
+                <CardHeader className="pb-3 sm:pb-4">
+                  <CardTitle className="text-base sm:text-lg">Export Details</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                   <p>• PDF exports are perfect for printing and archiving</p>
