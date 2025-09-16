@@ -1,9 +1,8 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { gsap } from "gsap"
 import { Card, CardContent } from "@/components/ui/card"
-import { Heart, Share2, Copy } from "lucide-react"
+// import { Heart, Share2, Copy } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/hooks/use-toast"
 
@@ -15,17 +14,17 @@ export function TopShayariCards({ className = "" }: TopShayariCardsProps) {
   const [shayaris, setShayaris] = useState<string[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [favorites, setFavorites] = useState<Set<number>>(new Set())
+  const [clickedCard, setClickedCard] = useState<number | null>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
   const { toast } = useToast()
 
-  // Fetch shayaris from Google Sheets
+  // Fetch shayaris from API
   const fetchShayaris = async () => {
     try {
       const response = await fetch("/api/top-shayaris")
       const data = await response.json()
 
       if (data.success && data.shayaris.length > 0) {
-        // Take first 6 shayaris for cards display
         setShayaris(data.shayaris.slice(0, 6))
       } else {
         // Fallback shayaris
@@ -49,19 +48,6 @@ export function TopShayariCards({ className = "" }: TopShayariCardsProps) {
   useEffect(() => {
     fetchShayaris()
   }, [])
-
-  // GSAP animations
-  useEffect(() => {
-    if (cardsRef.current && shayaris.length > 0) {
-      gsap.from(".top-shayari-card", {
-        opacity: 0,
-        y: 30,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "power2.out",
-      })
-    }
-  }, [shayaris])
 
   const handleCopy = async (shayari: string, index: number) => {
     try {
@@ -109,6 +95,10 @@ export function TopShayariCards({ className = "" }: TopShayariCardsProps) {
     })
   }
 
+  const handleCardClick = (index: number) => {
+    setClickedCard(clickedCard === index ? null : index)
+  }
+
   if (isLoading) {
     return (
       <div className={`space-y-4 ${className}`}>
@@ -146,12 +136,31 @@ export function TopShayariCards({ className = "" }: TopShayariCardsProps) {
         {shayaris.map((shayari, index) => (
           <Card
             key={index}
-            className="top-shayari-card glassmorphism hover:shadow-xl transition-all duration-300 group cursor-pointer"
+            onClick={() => handleCardClick(index)}
+            className={`top-shayari-card glassmorphism hover:shadow-xl transition-all duration-500 group cursor-pointer relative overflow-hidden ${
+              clickedCard === index ? "shayari-card-expanded" : ""
+            }`}
+            style={{
+              backgroundImage: "url(/shayari-background.jpg)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
           >
-            <CardContent className="p-4">
+            <div
+              className={`absolute inset-0 transition-all duration-500 ${
+                clickedCard === index ? "bg-white/10 dark:bg-black/10" : "bg-white/70 dark:bg-black/70"
+              }`}
+            />
+
+            <CardContent className="p-4 relative z-10">
               <div className="space-y-4">
                 <p
-                  className="text-gray-700 dark:text-gray-200 leading-relaxed text-center font-medium"
+                  className={`leading-relaxed text-center font-medium transition-all duration-500 ${
+                    clickedCard === index
+                      ? "text-gray-900 dark:text-white text-lg font-semibold drop-shadow-lg"
+                      : "text-gray-700 dark:text-gray-200"
+                  }`}
                   style={{ fontFamily: "var(--font-playfair)" }}
                 >
                   {shayari}
@@ -161,30 +170,39 @@ export function TopShayariCards({ className = "" }: TopShayariCardsProps) {
                   <Button
                     variant="ghost"
                     size="sm"
-                    onClick={() => toggleFavorite(index)}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      toggleFavorite(index)
+                    }}
                     className={`transition-colors ${
                       favorites.has(index) ? "text-red-500 hover:text-red-600" : "text-gray-400 hover:text-red-500"
                     }`}
                   >
-                    <Heart className={`w-4 h-4 ${favorites.has(index) ? "fill-current" : ""}`} />
+                    {favorites.has(index) ? "❤️" : "🤍"}
                   </Button>
 
                   <Button
                     variant="ghost"
                     size="sm"
-                    onClick={() => handleCopy(shayari, index)}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      handleCopy(shayari, index)
+                    }}
                     className="text-gray-400 hover:text-blue-500 transition-colors"
                   >
-                    <Copy className="w-4 h-4" />
+                    📋
                   </Button>
 
                   <Button
                     variant="ghost"
                     size="sm"
-                    onClick={() => handleShare(shayari)}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      handleShare(shayari)
+                    }}
                     className="text-gray-400 hover:text-green-500 transition-colors"
                   >
-                    <Share2 className="w-4 h-4" />
+                    📤
                   </Button>
                 </div>
               </div>

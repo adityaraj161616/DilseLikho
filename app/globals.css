@@ -4,78 +4,78 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color palette for romantic Shayari diary theme */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* Updated color palette following the romantic design brief */
+  --background: #fefce8; /* Soft beige background */
+  --foreground: #4b5563; /* Muted gray for text */
+  --card: #ffffff; /* White for cards and overlays */
+  --card-foreground: #4b5563; /* Gray for card text */
+  --popover: #ffffff; /* White for popover elements */
+  --popover-foreground: #4b5563; /* Gray for popover text */
+  --primary: #a16207; /* Warm romantic yellow for accents */
+  --primary-foreground: #ffffff; /* White for primary text */
+  --secondary: #ff6f61; /* Coral for highlights and buttons */
+  --secondary-foreground: #ffffff; /* White for secondary text */
+  --muted: #ecfeff; /* Light blue for subtle backgrounds */
+  --muted-foreground: #4b5563; /* Gray for muted text */
+  --accent: #ff6f61; /* Coral for call-to-action elements */
+  --accent-foreground: #ffffff; /* White for accent text */
+  --destructive: #e63946; /* Red for errors or warnings */
+  --destructive-foreground: #ffffff; /* White for destructive text */
+  --border: #d1d5db; /* Light gray for borders */
+  --input: #ffffff; /* White for input fields */
+  --ring: #ff6f61; /* Coral for focus rings */
+  --chart-1: #ff6f61; /* Coral for chart highlights */
+  --chart-2: #a16207; /* Yellow for secondary chart elements */
+  --chart-3: #fefce8; /* Soft beige for background chart elements */
+  --chart-4: #4b5563; /* Gray for additional chart elements */
+  --chart-5: #ffffff; /* White for chart backgrounds */
+  --radius: 0.5rem; /* Rounded corners for buttons and cards */
+  --sidebar: #fefce8; /* Sidebar background */
+  --sidebar-foreground: #4b5563; /* Sidebar text color */
+  --sidebar-primary: #a16207; /* Primary sidebar accent */
+  --sidebar-primary-foreground: #ffffff; /* White for sidebar primary text */
+  --sidebar-accent: #ff6f61; /* Sidebar accent color */
+  --sidebar-accent-foreground: #ffffff; /* White for sidebar accent text */
+  --sidebar-border: #d1d5db; /* Light gray for sidebar borders */
+  --sidebar-ring: #ff6f61; /* Coral for sidebar focus rings */
   --font-playfair: "Playfair Display", serif;
   --font-source-sans: "Source Sans Pro", sans-serif;
 }
 
 .dark {
   /* Updated dark mode colors for romantic theme */
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --background: #1a1a2e;
+  --foreground: #f8fafc;
+  --card: #16213e;
+  --card-foreground: #f8fafc;
+  --popover: #16213e;
+  --popover-foreground: #f8fafc;
+  --primary: #ff6f61;
+  --primary-foreground: #ffffff;
+  --secondary: #a16207;
+  --secondary-foreground: #ffffff;
+  --muted: #0f172a;
+  --muted-foreground: #94a3b8;
+  --accent: #ff6f61;
+  --accent-foreground: #ffffff;
+  --destructive: #e63946;
+  --destructive-foreground: #ffffff;
+  --border: #334155;
+  --input: #16213e;
+  --ring: #ff6f61;
+  --chart-1: #ff6f61;
+  --chart-2: #a16207;
+  --chart-3: #1a1a2e;
+  --chart-4: #94a3b8;
+  --chart-5: #16213e;
+  --sidebar: #1a1a2e;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #ff6f61;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #a16207;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #334155;
+  --sidebar-ring: #ff6f61;
 }
 
 @theme inline {
@@ -128,18 +128,92 @@
   }
 }
 
-/* Added custom styles for Shayari diary aesthetic */
+/* Enhanced romantic background patterns and animations */
 @layer utilities {
+  .romantic-background {
+    background-image: radial-gradient(circle at 20% 80%, rgba(255, 111, 97, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(161, 98, 7, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(255, 111, 97, 0.05) 0%, transparent 50%);
+    position: relative;
+  }
+
+  .romantic-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff6f61' fill-opacity='0.03'%3E%3Cpath d='M30 30c0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12 12-5.373 12-12zm12 0c0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12 12-5.373 12-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .love-pattern-bg {
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ff6f61' fill-opacity='0.05'%3E%3Cpath d='M20 20.5c0-8.837-7.163-16-16-16S-12 11.663-12 20.5s7.163 16 16 16 16-7.163 16-16zm16 0c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .floating-hearts {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .floating-hearts::after {
+    content: "♥ ♥ ♥ ♥ ♥";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    color: rgba(255, 111, 97, 0.1);
+    font-size: 20px;
+    text-align: center;
+    animation: float-hearts 15s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  @keyframes float-hearts {
+    0% {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
   .glassmorphism {
     background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(255, 111, 97, 0.1);
   }
 
   .dark .glassmorphism {
-    background: rgba(15, 15, 35, 0.95);
-    backdrop-filter: blur(5px);
+    background: rgba(22, 33, 62, 0.95);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(255, 111, 97, 0.2);
+  }
+
+  .shayari-card-expanded {
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(255, 111, 97, 0.15);
+  }
+
+  .shayari-card-expanded .glassmorphism {
+    backdrop-filter: blur(15px);
+  }
+
+  .dark .shayari-card-expanded .glassmorphism {
+    backdrop-filter: blur(15px);
   }
 
   .scrollbar-hide {
@@ -170,7 +244,7 @@
     left: 50%;
     width: 0;
     height: 0;
-    background: radial-gradient(circle, rgba(190, 18, 60, 0.3) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 111, 97, 0.3) 0%, transparent 70%);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transition: width 0.6s ease, height 0.6s ease;
@@ -193,7 +267,6 @@
       linear-gradient(to bottom, transparent 24px, #1f2937 25px);
   }
 
-  /* Added font family utilities for Playfair Display */
   .font-playfair {
     font-family: var(--font-playfair), serif;
   }
@@ -201,9 +274,18 @@
   .font-source-sans {
     font-family: var(--font-source-sans), sans-serif;
   }
+
+  /* Added romantic gradient backgrounds */
+  .romantic-gradient {
+    background: linear-gradient(135deg, rgba(255, 111, 97, 0.1) 0%, rgba(161, 98, 7, 0.1) 100%);
+  }
+
+  .dark .romantic-gradient {
+    background: linear-gradient(135deg, rgba(255, 111, 97, 0.2) 0%, rgba(161, 98, 7, 0.2) 100%);
+  }
 }
 
-/* Added custom keyframes for heart animations */
+/* Enhanced floating animations for romantic elements */
 @keyframes float {
   0%,
   100% {
@@ -214,6 +296,38 @@
   }
 }
 
+@keyframes pulse-heart {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
 .floating-heart {
   animation: float 3s ease-in-out infinite;
+}
+
+.pulse-heart {
+  animation: pulse-heart 2s ease-in-out infinite;
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #ff6f61, #a16207, #ff6f61);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
 }

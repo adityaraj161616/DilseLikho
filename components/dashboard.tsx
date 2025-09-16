@@ -26,7 +26,7 @@ Hawas k libaz m jhutha pyr dikhakr,
 Hume u jeetna chahte ho,
 Aree jao miya hum woh nhi jiske saath tum har raat bitate ho...`,
     mood: "sad",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 2,
@@ -44,7 +44,7 @@ Toh aafat ka naam kehlate ho
 Jaan .... Nhi hota toh ab keh bhi do,
 Q iss rishte ka bojh uthate ho......`,
     mood: "sad",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 3,
@@ -63,7 +63,7 @@ Or suno
 Suna h woh bhi bhut mohobbat krte h tumhse
 Kaho iss bar unnke pyr ka janaja uthwaoge ky........`,
     mood: "sad",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 4,
@@ -75,14 +75,12 @@ Ha mana KI m jiddi hu,
 Lekin kbhi aap logon ko manane ka mauka bhi ni diya.
 Ha mana ki mujhme hazaron khamiya h,
 Toh aapko mere saath rehne ki zabardasti b ni ki.
-Ha mana meine ki dil hamesha lga baithi hu m,
-Pr mere aasuon ki parwah b apko toh h nii.
 Ha mana meine usse chorr diya,
 Isliye shayd ki ab usse meri zaroori nhi.
 Ha mana meine ki ab hu m kisi or ki,
 Iska mtlb yeh ki mujhe bhi khush hone ka thoda haq toh h hi.......`,
     mood: "sad",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 5,
@@ -96,7 +94,7 @@ siddat ki mohobbat krte h
 woh sene se laga le toh hum
 mukkamal ho jayenge....`,
     mood: "sad",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 6,
@@ -113,7 +111,7 @@ Hum hamesha sajenge tumhare liye...
 Kaho Tum hame dekhne aaoge ky
 Jaaaann ..yeh kuch wade h tumhe nibhane h kaho nibhaoge ky ......`,
     mood: "romantic",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 7,
@@ -123,7 +121,7 @@ Ek chai ki pyali sa ban jao na tum,
 Andheri is raat m bhul jau m sab kuch,...
 Toh aisa koi geet ban jao n tum....`,
     mood: "happy",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 8,
@@ -135,7 +133,7 @@ Jalti h duniya...Q ki hum na sunte unki bakwas h,...
 Pyar ka matlab shayd unhe pata nhi,...
 Q ki dikhaw e k rishte hamesha bina jazbaat h..`,
     mood: "philosophical",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 9,
@@ -144,7 +142,7 @@ Q ki dikhaw e k rishte hamesha bina jazbaat h..`,
 Kambakhta takleef toh hame ho rhi h jo...
 Wafadari se hamne nibhayi h`,
     mood: "sad",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 10,
@@ -163,9 +161,9 @@ Hayeee kaisi h hamari kismat...
 Tum chaho jise woh milta kha h...
 Meine bhi agar Maan liya hame bhi mohobbat h unse...
 Toh lagta usse yeh sapne jaisa h
-Hayee tujhe kaise btau meri jaan tujsa mere naseeb m milna jaise sapne ka poora hone jaisa h`,
+Hayee tujhe kaise btau meri jaan tujsa mere naseeb m milna jaise sapne ka poora hone jaise h`,
     mood: "romantic",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 11,
@@ -179,7 +177,7 @@ Agar pure hue toh Shiv Parvati...
 Or agar adhure hue toh Radha Krishna...
 Sanbhavtahh....`,
     mood: "philosophical",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 12,
@@ -190,7 +188,7 @@ Chahta toh cheeh lata tumhe...
 Magar tum dobara wapas mujhe pehle jaise milogi kha......
 Sushhh...`,
     mood: "sad",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 13,
@@ -214,7 +212,7 @@ Jo mujhe btaya pyaar m hota yeh sab toh easy lo
 Khtm na krna chahunga yeh rishta jo kehta wo...
 Or uski jid jo puri krti hui mein woh.....`,
     mood: "romantic",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 14,
@@ -227,7 +225,7 @@ Na hi majboori h
 Mana aaj smjha nhi mere pyaar ko usme...
 Pr kl ko tarsega yeh jaroori h.....`,
     mood: "romantic",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 15,
@@ -249,7 +247,7 @@ Ha wahi kehna tha,...
 Ky,,...
 Suno ruk skte ho......`,
     mood: "sad",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 16,
@@ -280,70 +278,70 @@ Tumhari khushi mujh me h mein janta hu...
 Is mohobbat ko meine adhoora rkha...
 Iska iljaam bhi sehna chahunga.......`,
     mood: "sad",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 17,
     title: "दुआ और बद्दुआ",
     content: `Hamari dua h tumhe ki har koi mile tumhe tumhare jaisa...\nMagar baddua hamesha yhi rhegi...\nKi kbhi na mile tujhe mere jaisa...\nMile toh honge hazar tujhe chahne wale...\nJinhe tune hamesha mujhse upr darja diya h...\nMagar dekhna ek din girayenge bhi woh tujhe...\nMujhe yeh bhi ptah\n\nMohobbat ko tarsega tu bhi...\nJaise mein maut ko tarsti aai hu...\nBhulungi mein bhi ni apni jawani...\nJisse tere khatir gawai hu...\nMile tujhe woh dua h meri yeh...\nTb toh pata chale tujhe...\nKi dua di thi meine mile tujhe tere jaisa...\nAur baddua m kbhi na mile tujhe mujhe jaisa`,
     mood: "sad",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 18,
     title: "महफूज़ रखा है",
     content: `Mehfooz rakha h meine tujhe aise...\nMeri khud ki parchhai bhi na padne du tujhpe...\nJism alag ho rha h har din rooh se meri...\nTeri ek didar ko tarasti yeh aakhein h...\nMaut ko chahti hu paana...\nPr mohobbat ki tarah kambakhat woh bhi...\nTarsa rhi mujhko h....`,
     mood: "sad",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 19,
     title: "बदल गए हैं हम",
     content: `Kuch aise bane h hum...\nTere jaane k baad...\nKisi k hone pr bhi hume khud pr shaq hone laga h...\nTu banaya tune mujhe iskadar...\nKi mere sachhe alfaaz bhi jhooth mujhe lagte h...\nMeri fitrat jo na thi kbhi kisi ko ajmane ki...\nWoh ab tere jaane k baad aai h...\nHamesha dil dimaag k pehle rakha meine...\nIsliye aankhe meri 100 baar tune jhutlaih...\nM hu iss kabil tujhe barbaad krne ko...\nMagar tujhe bhulne m`,
     mood: "sad",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 20,
     title: "बड़े ख्वाब",
     content: `Mere khwab bhut bade h...\nJanti hu warna tumhe paana toh dur...\nSochna bhi mere halaton m na tha...\nMagar yeh humne apne haathon k lakeeron m...\nNi dekha ki tujhe hum pakad bhi...\nKhone ki takat rkhte h.....`,
     mood: "philosophical",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 21,
     title: "सीने से लगाया है",
     content: `Lga rkha h seene se tumhe iss tarah...\nKe ab log aarhe h tumhari jagah iss...\nKafan ko odhane...\nMohobbat m pucha unhone meri lash se...\nKi mila kya tujhe......\nMeine bhi maun shabon m kaha...\nMera rakeeb aaya h mujhe dafnane....`,
     mood: "sad",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 22,
     title: "मंजिल की राह",
     content: `Chle ho uss raah pr tum jha manjil toh milegi...\nPr sukoon bhut peeche chorr aye ho...\nSab ki parwah krte krte khud ko tumhne jo chot pahuchai h\nAb manjil bhi tumhari h jindigi ki ummid jyada Mt rkhna……`,
     mood: "philosophical",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 23,
     title: "आंखों की तलाश",
     content: `Dekho tum na sahi...\nTumahri aakhein aaj bhi mujhe dhudhti h...\nBadal toh gye tum...\nMagar uss narjron ka ky kroge jo mujhe dhudhtui har shaqs pr h ….`,
     mood: "romantic",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 24,
     title: "रब से मांगना",
     content: `Tujhe kuch iss tarah maang rhi hu...\nKi rab sochta mujhe dekh rha h\nOr mein rote hue apni jholi failaye baithi hu\nUss rab ne daala toh meri jholi m tujhe aise...\nTu hokr bhi na hua jaise`,
     mood: "romantic",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
   {
     id: 25,
     title: "अधूरे या पूरे - दोबारा",
     content: `He - hum adhure rhengge ya pure\nShe - kyu achank ky hua tumhe\nHe - ni btao na adhure ya pure?\nShe - woh toh nhi malum mujhe...\nJitna mujhe maalum h woh h ki...\nAgar pure hue toh Shiv Parvati...\nOr agar adhure hue toh Radha Krishna...`,
     mood: "philosophical",
-    author: "Featured",
+    author: "Sushhh....🖤",
   },
 ]
 
@@ -511,73 +509,116 @@ export function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-slate-900">
+    <div className="min-h-screen romantic-background floating-hearts">
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <svg className="absolute top-10 left-10 w-16 h-16 text-primary/10" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+        <svg className="absolute top-32 right-20 w-12 h-12 text-secondary/10" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M9 11H7v3h2v-3zm4 0h-2v3h2v-3zm4 0h-2v3h2v-3zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+        </svg>
+        <svg className="absolute bottom-20 left-1/4 w-20 h-20 text-primary/5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+        <svg className="absolute top-1/2 right-10 w-14 h-14 text-secondary/8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+        <svg className="absolute bottom-32 right-1/3 w-10 h-10 text-primary/12" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+        </svg>
+        <svg
+          className="absolute top-2/3 left-16 w-8 h-8 text-secondary/15 floating-heart"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+      </div>
+
       <TopShayaris />
 
-      <main className="container mx-auto px-6 py-8">
+      <main className="container mx-auto px-6 py-8 relative z-10">
         <div ref={dashboardRef} className="space-y-8">
-          <div className="text-center">
-            <h1 className="font-playfair text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Welcome back, {session?.user?.name?.split(" ")[0]}
-            </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-              Continue your poetic journey and explore your collection of Shayari
-            </p>
+          <div className="text-center relative">
+            <div className="absolute inset-0 romantic-gradient rounded-3xl blur-3xl opacity-30"></div>
+            <div className="relative z-10 py-8">
+              <h1 className="font-playfair text-4xl md:text-6xl font-bold text-primary mb-4 shimmer-text">
+                Welcome back, {session?.user?.name?.split(" ")[0]}
+              </h1>
+              <p className="text-xl text-muted-foreground mb-8 font-source-sans">
+                Continue your poetic journey and explore your collection of Shayari
+              </p>
+              <div className="flex justify-center">
+                <Heart className="w-8 h-8 text-secondary pulse-heart" />
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <BookOpen className="w-8 h-8 text-white" />
+            <Card className="glassmorphism hover:shadow-2xl transition-all duration-500 border-2 border-primary/20 hover:border-primary/40 group">
+              <CardContent className="p-8 text-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative z-10">
+                  <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <BookOpen className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-3xl font-bold text-primary font-playfair mb-2">{stats.total}</h3>
+                  <p className="text-muted-foreground font-semibold font-source-sans">Total Shayaris</p>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{stats.total}</h3>
-                <p className="text-gray-600 dark:text-gray-300 font-medium">Total Shayaris</p>
               </CardContent>
             </Card>
 
-            <Card className="bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-8 h-8 text-white" />
+            <Card className="glassmorphism hover:shadow-2xl transition-all duration-500 border-2 border-secondary/20 hover:border-secondary/40 group">
+              <CardContent className="p-8 text-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative z-10">
+                  <div className="w-20 h-20 bg-gradient-to-br from-secondary to-secondary/80 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Heart className="w-10 h-10 text-white pulse-heart" />
+                  </div>
+                  <h3 className="text-3xl font-bold text-secondary font-playfair mb-2">{stats.favorites}</h3>
+                  <p className="text-muted-foreground font-semibold font-source-sans">Favorites</p>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{stats.favorites}</h3>
-                <p className="text-gray-600 dark:text-gray-300 font-medium">Favorites</p>
               </CardContent>
             </Card>
 
-            <Card className="bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700">
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Sparkles className="w-8 h-8 text-white" />
+            <Card className="glassmorphism hover:shadow-2xl transition-all duration-500 border-2 border-primary/20 hover:border-primary/40 group">
+              <CardContent className="p-8 text-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative z-10">
+                  <div className="w-20 h-20 bg-gradient-to-br from-primary via-secondary to-primary rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Sparkles className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-3xl font-bold text-primary font-playfair mb-2">{stats.thisMonth}</h3>
+                  <p className="text-muted-foreground font-semibold font-source-sans">This Month</p>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{stats.thisMonth}</h3>
-                <p className="text-gray-600 dark:text-gray-300 font-medium">This Month</p>
               </CardContent>
             </Card>
           </div>
 
           <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white font-playfair">Featured Shayaris</h2>
+              <h2 className="text-4xl font-bold text-primary font-playfair flex items-center gap-3">
+                <Heart className="w-8 h-8 text-secondary" />
+                Featured Shayaris
+              </h2>
               <div className="flex items-center gap-2">
                 <Button
                   variant="outline"
                   size="sm"
-                  className="border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700"
+                  className="border-primary/30 bg-card hover:bg-primary/10 hover:border-primary/50 transition-all duration-300"
                   onClick={() =>
                     setCurrentFeaturedIndex((prev) => (prev - 1 + featuredShayaris.length) % featuredShayaris.length)
                   }
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </Button>
-                <span className="text-sm text-gray-600 dark:text-gray-300 px-2 font-medium">
+                <span className="text-sm text-muted-foreground px-3 py-1 bg-card rounded-full font-medium border border-border">
                   {currentFeaturedIndex + 1} / {featuredShayaris.length}
                 </span>
                 <Button
                   variant="outline"
                   size="sm"
-                  className="border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700"
+                  className="border-primary/30 bg-card hover:bg-primary/10 hover:border-primary/50 transition-all duration-300"
                   onClick={() => setCurrentFeaturedIndex((prev) => (prev + 1) % featuredShayaris.length)}
                 >
                   <ChevronRight className="w-4 h-4" />
@@ -593,39 +634,44 @@ export function Dashboard() {
               {featuredShayaris.map((shayari, index) => (
                 <Card
                   key={shayari.id}
-                  className={`min-w-[300px] bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105 border-2 ${
+                  className={`min-w-[300px] shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105 border-2 relative overflow-hidden ${
                     index === currentFeaturedIndex ? "border-blue-500" : "border-gray-200 dark:border-gray-700"
                   }`}
                   onClick={() => setSelectedFeaturedShayari(shayari)}
+                  style={{
+                    backgroundImage:
+                      "url(/shayari-background.jpg)",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                  }}
                 >
-                  <CardContent className="p-6">
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/30 to-black/50 transition-all duration-300" />
+                  <CardContent className="p-6 relative z-10">
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white font-playfair">
+                        <h3 className="text-lg font-semibold text-white font-playfair drop-shadow-lg shadow-black">
                           {shayari.title}
                         </h3>
                         <span
-                          className={`px-2 py-1 rounded-full text-sm font-medium ${
-                            moods.find((m) => m.value === shayari.mood)?.color ||
-                            "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200"
-                          }`}
+                          className={`px-2 py-1 rounded-full text-sm font-medium backdrop-blur-sm bg-white/90 text-gray-800 shadow-lg`}
                         >
                           {moods.find((m) => m.value === shayari.mood)?.label}
                         </span>
                       </div>
-
-                      <p className="text-gray-700 dark:text-gray-200 leading-relaxed font-medium line-clamp-3">
+                      <p className="text-white leading-relaxed font-medium line-clamp-3 drop-shadow-lg shadow-black">
                         {shayari.content.split("\n")[0]}...
                       </p>
-
-                      <div className="flex items-center justify-between pt-2 border-t border-gray-200 dark:border-gray-700">
-                        <span className="text-sm text-gray-600 dark:text-gray-400">By {shayari.author}</span>
+                      <div className="flex items-center justify-between pt-2 border-t border-white/30">
+                        <span className="text-sm text-white font-medium drop-shadow-lg shadow-black">
+                          By {shayari.author}
+                        </span>
                         <Button
                           variant="ghost"
                           size="sm"
-                          className="text-gray-500 hover:text-red-500 transition-colors"
+                          className="text-white hover:text-red-400 transition-colors backdrop-blur-sm hover:bg-white/20"
                         >
-                          <Heart className="w-4 h-4" />
+                          <Heart className="w-4 h-4 drop-shadow-lg" />
                         </Button>
                       </div>
                     </div>
@@ -653,13 +699,11 @@ export function Dashboard() {
                     {moods.find((m) => m.value === selectedFeaturedShayari?.mood)?.label}
                   </span>
                 </div>
-
                 <div className="bg-gray-50 dark:bg-slate-700 p-6 rounded-lg border border-gray-200 dark:border-gray-600">
                   <p className="text-gray-900 dark:text-white leading-relaxed text-lg whitespace-pre-line text-center font-medium">
                     {selectedFeaturedShayari?.content}
                   </p>
                 </div>
-
                 <div className="flex items-center justify-between">
                   <span className="text-gray-600 dark:text-gray-300">By {selectedFeaturedShayari?.author}</span>
                   <Button
@@ -674,49 +718,51 @@ export function Dashboard() {
             </DialogContent>
           </Dialog>
 
-          <Card className="bg-white dark:bg-slate-800 shadow-lg border border-gray-200 dark:border-gray-700">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-gray-900 dark:text-white">
-                <Filter className="w-5 h-5" />
+          <Card className="glassmorphism shadow-xl border-2 border-primary/20">
+            <CardHeader className="pb-4">
+              <CardTitle className="flex items-center gap-3 text-primary font-playfair text-2xl">
+                <Filter className="w-6 h-6 text-secondary" />
                 Filter & Search
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
                   <Input
                     placeholder="Search your Shayaris..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 bg-white dark:bg-slate-700 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white"
+                    className="pl-12 h-12 bg-card border-2 border-border hover:border-primary/30 focus:border-primary/50 transition-all duration-300 font-source-sans"
                   />
                 </div>
-
                 <Select value={selectedMood} onValueChange={setSelectedMood}>
-                  <SelectTrigger className="bg-white dark:bg-slate-700 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white">
+                  <SelectTrigger className="h-12 bg-card border-2 border-border hover:border-primary/30 focus:border-primary/50 transition-all duration-300 font-source-sans">
                     <SelectValue placeholder="Filter by mood" />
                   </SelectTrigger>
-                  <SelectContent className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-700">
+                  <SelectContent className="bg-card border-2 border-border">
                     {moods.map((mood) => (
-                      <SelectItem key={mood.value} value={mood.value} className="text-gray-900 dark:text-white">
+                      <SelectItem key={mood.value} value={mood.value} className="font-source-sans">
                         {mood.label}
                       </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
-
-                <div className="flex gap-2">
+                <div className="flex gap-3">
                   <Button
                     variant={showFavorites ? "default" : "outline"}
                     onClick={() => setShowFavorites(!showFavorites)}
-                    className="flex-1"
+                    className="flex-1 h-12 font-source-sans font-semibold transition-all duration-300 hover:scale-105"
                   >
-                    <Heart className="w-4 h-4 mr-2" />
+                    <Heart className="w-5 h-5 mr-2" />
                     Favorites Only
                   </Button>
-                  <Button variant="outline" onClick={() => router.push("/calendar")}>
-                    <Calendar className="w-4 h-4 mr-2" />
+                  <Button
+                    variant="outline"
+                    onClick={() => router.push("/calendar")}
+                    className="h-12 border-2 border-border hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
+                  >
+                    <Calendar className="w-5 h-5 mr-2" />
                     Calendar
                   </Button>
                 </div>
@@ -724,6 +770,7 @@ export function Dashboard() {
             </CardContent>
           </Card>
 
+          {/* Existing shayari cards grid code */}
           <div ref={cardsRef}>
             {isLoading ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
