@@ -523,15 +523,12 @@ export function Dashboard() {
         <svg className="absolute top-1/2 right-10 w-14 h-14 text-secondary/8" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
         </svg>
-        <svg className="absolute bottom-32 right-1/3 w-10 h-10 text-primary/12" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
-        </svg>
         <svg
           className="absolute top-2/3 left-16 w-8 h-8 text-secondary/15 floating-heart"
           viewBox="0 0 24 24"
           fill="currentColor"
         >
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
         </svg>
       </div>
 
@@ -640,7 +637,7 @@ export function Dashboard() {
                   onClick={() => setSelectedFeaturedShayari(shayari)}
                   style={{
                     backgroundImage:
-                      "url(/shayari-background.jpg)",
+                      "url(/placeholder.svg?height=400&width=300&query=beautiful+urdu+poetry+background+with+elegant+patterns)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
@@ -682,13 +679,13 @@ export function Dashboard() {
           </div>
 
           <Dialog open={!!selectedFeaturedShayari} onOpenChange={() => setSelectedFeaturedShayari(null)}>
-            <DialogContent className="max-w-2xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-700">
-              <DialogHeader>
+            <DialogContent className="max-w-2xl max-h-[90vh] bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-700 flex flex-col">
+              <DialogHeader className="flex-shrink-0">
                 <DialogTitle className="text-2xl font-playfair text-center text-gray-900 dark:text-white">
                   {selectedFeaturedShayari?.title}
                 </DialogTitle>
               </DialogHeader>
-              <div className="space-y-6 p-6">
+              <div className="flex-1 overflow-y-auto space-y-6 p-6">
                 <div className="text-center">
                   <span
                     className={`px-3 py-1 rounded-full text-sm font-medium ${
@@ -699,7 +696,7 @@ export function Dashboard() {
                     {moods.find((m) => m.value === selectedFeaturedShayari?.mood)?.label}
                   </span>
                 </div>
-                <div className="bg-gray-50 dark:bg-slate-700 p-6 rounded-lg border border-gray-200 dark:border-gray-600">
+                <div className="bg-gray-50 dark:bg-slate-700 p-6 rounded-lg border border-gray-200 dark:border-gray-600 max-h-[50vh] overflow-y-auto">
                   <p className="text-gray-900 dark:text-white leading-relaxed text-lg whitespace-pre-line text-center font-medium">
                     {selectedFeaturedShayari?.content}
                   </p>
