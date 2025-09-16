@@ -36,12 +36,16 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
     setIsExporting(true)
     try {
       const canvas = await html2canvas(exportRef.current, {
-        scale: 2,
-        backgroundColor: null,
+        scale: window.devicePixelRatio || 2,
+        backgroundColor: "#ffffff",
         useCORS: true,
+        allowTaint: true,
+        logging: false,
+        width: exportRef.current.offsetWidth,
+        height: exportRef.current.offsetHeight,
       })
 
-      const imgData = canvas.toDataURL("image/png")
+      const imgData = canvas.toDataURL("image/png", 1.0)
       const pdf = new jsPDF({
         orientation: "portrait",
         unit: "mm",
@@ -65,7 +69,7 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
         heightLeft -= pageHeight
       }
 
-      pdf.save(`${shayari.title}.pdf`)
+      pdf.save(`${shayari.title.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.pdf`)
       toast({
         title: "Success!",
         description: "Shayari exported as PDF successfully",
@@ -74,7 +78,7 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
       console.error("Error exporting PDF:", error)
       toast({
         title: "Error",
-        description: "Failed to export PDF",
+        description: "Failed to export PDF. Please try again.",
         variant: "destructive",
       })
     } finally {
@@ -88,33 +92,43 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
     setIsExporting(true)
     try {
       const canvas = await html2canvas(exportRef.current, {
-        scale: 2,
-        backgroundColor: null,
+        scale: window.devicePixelRatio || 2,
+        backgroundColor: "#ffffff",
         useCORS: true,
+        allowTaint: true,
+        logging: false,
+        width: exportRef.current.offsetWidth,
+        height: exportRef.current.offsetHeight,
       })
 
-      canvas.toBlob((blob) => {
-        if (blob) {
-          const url = URL.createObjectURL(blob)
-          const a = document.createElement("a")
-          a.href = url
-          a.download = `${shayari.title}.png`
-          document.body.appendChild(a)
-          a.click()
-          document.body.removeChild(a)
-          URL.revokeObjectURL(url)
+      canvas.toBlob(
+        (blob) => {
+          if (blob) {
+            const url = URL.createObjectURL(blob)
+            const a = document.createElement("a")
+            a.href = url
+            a.download = `${shayari.title.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.png`
+            document.body.appendChild(a)
+            a.click()
+            document.body.removeChild(a)
+            URL.revokeObjectURL(url)
 
-          toast({
-            title: "Success!",
-            description: "Shayari exported as image successfully",
-          })
-        }
-      }, "image/png")
+            toast({
+              title: "Success!",
+              description: "Shayari exported as image successfully",
+            })
+          } else {
+            throw new Error("Failed to create image blob")
+          }
+        },
+        "image/png",
+        1.0,
+      )
     } catch (error) {
       console.error("Error exporting image:", error)
       toast({
         title: "Error",
-        description: "Failed to export image",
+        description: "Failed to export image. Please try again.",
         variant: "destructive",
       })
     } finally {
@@ -128,49 +142,81 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
     setIsExporting(true)
     try {
       const canvas = await html2canvas(exportRef.current, {
-        scale: 2,
-        backgroundColor: null,
+        scale: window.devicePixelRatio || 2,
+        backgroundColor: "#ffffff",
         useCORS: true,
+        allowTaint: true,
+        logging: false,
+        width: exportRef.current.offsetWidth,
+        height: exportRef.current.offsetHeight,
       })
 
-      canvas.toBlob(async (blob) => {
-        if (blob) {
-          if (navigator.share && navigator.canShare) {
-            const file = new File([blob], `${shayari.title}.png`, { type: "image/png" })
-            if (navigator.canShare({ files: [file] })) {
-              try {
-                await navigator.share({
-                  title: shayari.title,
-                  text: "Check out this beautiful Shayari from Dil Se Likho",
-                  files: [file],
-                })
-              } catch (error) {
-                console.log("Error sharing:", error)
+      canvas.toBlob(
+        async (blob) => {
+          if (blob) {
+            if (navigator.share && navigator.canShare) {
+              const file = new File([blob], `${shayari.title.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.png`, {
+                type: "image/png",
+              })
+              if (navigator.canShare({ files: [file] })) {
+                try {
+                  await navigator.share({
+                    title: shayari.title,
+                    text: "Check out this beautiful Shayari from Dil Se Likho",
+                    files: [file],
+                  })
+                  toast({
+                    title: "Shared!",
+                    description: "Shayari shared successfully",
+                  })
+                } catch (error) {
+                  if ((error as Error).name !== "AbortError") {
+                    console.log("Error sharing:", error)
+                    // Fallback to download
+                    const url = URL.createObjectURL(blob)
+                    const a = document.createElement("a")
+                    a.href = url
+                    a.download = `${shayari.title.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.png`
+                    document.body.appendChild(a)
+                    a.click()
+                    document.body.removeChild(a)
+                    URL.revokeObjectURL(url)
+
+                    toast({
+                      title: "Downloaded!",
+                      description: "Image downloaded. You can now share it manually.",
+                    })
+                  }
+                }
               }
+            } else {
+              // Fallback: download the image
+              const url = URL.createObjectURL(blob)
+              const a = document.createElement("a")
+              a.href = url
+              a.download = `${shayari.title.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.png`
+              document.body.appendChild(a)
+              a.click()
+              document.body.removeChild(a)
+              URL.revokeObjectURL(url)
+
+              toast({
+                title: "Downloaded!",
+                description: "Image downloaded. You can now share it manually.",
+              })
             }
           } else {
-            // Fallback: download the image
-            const url = URL.createObjectURL(blob)
-            const a = document.createElement("a")
-            a.href = url
-            a.download = `${shayari.title}.png`
-            document.body.appendChild(a)
-            a.click()
-            document.body.removeChild(a)
-            URL.revokeObjectURL(url)
-
-            toast({
-              title: "Downloaded!",
-              description: "Image downloaded. You can now share it manually.",
-            })
+            throw new Error("Failed to create image blob")
           }
-        }
-      }, "image/png")
+        },
+        "image/png",
+        1.0,
+      )
     } catch (error) {
       console.error("Error sharing image:", error)
       toast({
         title: "Error",
-        description: "Failed to share image",
+        description: "Failed to share image. Please try again.",
         variant: "destructive",
       })
     } finally {
@@ -181,114 +227,120 @@ export function ExportOptions({ shayari }: ExportOptionsProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" className="ink-drop bg-transparent">
+        <Button variant="outline" className="ink-drop bg-transparent w-full sm:w-auto">
           <Download className="w-4 h-4 mr-2" />
           Export
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle>Export Your Shayari</DialogTitle>
+      <DialogContent className="w-[95vw] max-w-6xl max-h-[95vh] overflow-hidden flex flex-col p-0">
+        <DialogHeader className="p-6 pb-0 flex-shrink-0">
+          <DialogTitle className="text-xl sm:text-2xl">Export Your Shayari</DialogTitle>
         </DialogHeader>
 
-        <div className="grid lg:grid-cols-2 gap-6">
-          {/* Preview */}
-          <div className="space-y-4">
-            <div>
-              <label className="text-sm font-medium mb-2 block">Choose Theme</label>
-              <Select value={selectedTheme} onValueChange={setSelectedTheme}>
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {themes.map((theme) => (
-                    <SelectItem key={theme.value} value={theme.value}>
-                      {theme.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="border rounded-lg p-4 bg-gray-50 dark:bg-gray-900">
-              <div
-                ref={exportRef}
-                className={`w-full aspect-[3/4] ${selectedThemeData.bg} ${selectedThemeData.text} p-8 rounded-lg shadow-lg flex flex-col justify-center items-center text-center relative overflow-hidden`}
-              >
-                {/* Decorative elements */}
-                <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-current opacity-30"></div>
-                <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-current opacity-30"></div>
-                <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-current opacity-30"></div>
-                <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-current opacity-30"></div>
-
-                {/* Content */}
-                <div className="space-y-6 max-w-md">
-                  <h1 className="font-playfair text-2xl font-bold">{shayari.title}</h1>
-                  <div className="space-y-2 font-playfair text-lg leading-relaxed">
-                    {shayari.content.split("\n").map((line, index) => (
-                      <div key={index}>{line.trim() || <br />}</div>
+        <div className="flex-1 overflow-y-auto p-6">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+            {/* Preview Section */}
+            <div className="space-y-4 order-2 xl:order-1">
+              <div>
+                <label className="text-sm font-medium mb-2 block">Choose Theme</label>
+                <Select value={selectedTheme} onValueChange={setSelectedTheme}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {themes.map((theme) => (
+                      <SelectItem key={theme.value} value={theme.value}>
+                        {theme.label}
+                      </SelectItem>
                     ))}
-                  </div>
-                  <div className="text-sm opacity-70">
-                    {new Date(shayari.createdAt).toLocaleDateString("en-IN", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </div>
-                </div>
+                  </SelectContent>
+                </Select>
+              </div>
 
-                {/* Branding */}
-                <div className="absolute bottom-6 text-xs opacity-50">Dil Se Likho</div>
+              <div className="border rounded-lg p-2 sm:p-4 bg-gray-50 dark:bg-gray-900">
+                <div
+                  ref={exportRef}
+                  className={`w-full max-w-sm mx-auto aspect-[3/4] ${selectedThemeData.bg} ${selectedThemeData.text} p-4 sm:p-8 rounded-lg shadow-lg flex flex-col justify-center items-center text-center relative overflow-hidden`}
+                >
+                  {/* Decorative elements */}
+                  <div className="absolute top-2 sm:top-4 left-2 sm:left-4 w-6 sm:w-8 h-6 sm:h-8 border-l-2 border-t-2 border-current opacity-30"></div>
+                  <div className="absolute top-2 sm:top-4 right-2 sm:right-4 w-6 sm:w-8 h-6 sm:h-8 border-r-2 border-t-2 border-current opacity-30"></div>
+                  <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 w-6 sm:w-8 h-6 sm:h-8 border-l-2 border-b-2 border-current opacity-30"></div>
+                  <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 w-6 sm:w-8 h-6 sm:h-8 border-r-2 border-b-2 border-current opacity-30"></div>
+
+                  {/* Content */}
+                  <div className="space-y-3 sm:space-y-6 max-w-xs sm:max-w-md px-2">
+                    <h1 className="font-playfair text-lg sm:text-2xl font-bold leading-tight">{shayari.title}</h1>
+                    <div className="space-y-1 sm:space-y-2 font-playfair text-sm sm:text-lg leading-relaxed max-h-48 sm:max-h-64 overflow-y-auto">
+                      {shayari.content.split("\n").map((line, index) => (
+                        <div key={index}>{line.trim() || <br />}</div>
+                      ))}
+                    </div>
+                    <div className="text-xs sm:text-sm opacity-70">
+                      {new Date(shayari.createdAt).toLocaleDateString("en-IN", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Branding */}
+                  <div className="absolute bottom-2 sm:bottom-6 text-xs opacity-50">Dil Se Likho</div>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Export Options */}
-          <div className="space-y-4">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Export Options</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <Button onClick={exportAsPDF} disabled={isExporting} className="w-full ink-drop">
-                  <FileText className="w-4 h-4 mr-2" />
-                  {isExporting ? "Exporting..." : "Download as PDF"}
-                </Button>
+            {/* Export Options Section */}
+            <div className="space-y-4 order-1 xl:order-2">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg sm:text-xl">Export Options</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3 sm:space-y-4">
+                  <Button
+                    onClick={exportAsPDF}
+                    disabled={isExporting}
+                    className="w-full ink-drop h-12 text-sm sm:text-base"
+                  >
+                    <FileText className="w-4 h-4 mr-2" />
+                    {isExporting ? "Exporting..." : "Download as PDF"}
+                  </Button>
 
-                <Button
-                  onClick={exportAsImage}
-                  disabled={isExporting}
-                  variant="outline"
-                  className="w-full bg-transparent"
-                >
-                  <ImageIcon className="w-4 h-4 mr-2" />
-                  {isExporting ? "Exporting..." : "Download as Image"}
-                </Button>
+                  <Button
+                    onClick={exportAsImage}
+                    disabled={isExporting}
+                    variant="outline"
+                    className="w-full bg-transparent h-12 text-sm sm:text-base"
+                  >
+                    <ImageIcon className="w-4 h-4 mr-2" />
+                    {isExporting ? "Exporting..." : "Download as Image"}
+                  </Button>
 
-                <Button
-                  onClick={shareAsImage}
-                  disabled={isExporting}
-                  variant="outline"
-                  className="w-full bg-transparent"
-                >
-                  <Share className="w-4 h-4 mr-2" />
-                  {isExporting ? "Sharing..." : "Share as Image"}
-                </Button>
-              </CardContent>
-            </Card>
+                  <Button
+                    onClick={shareAsImage}
+                    disabled={isExporting}
+                    variant="outline"
+                    className="w-full bg-transparent h-12 text-sm sm:text-base"
+                  >
+                    <Share className="w-4 h-4 mr-2" />
+                    {isExporting ? "Sharing..." : "Share as Image"}
+                  </Button>
+                </CardContent>
+              </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Export Details</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                <p>• PDF exports are perfect for printing and archiving</p>
-                <p>• Image exports are great for social media sharing</p>
-                <p>• All exports include your Shayari with beautiful typography</p>
-                <p>• Choose different themes to match your mood</p>
-              </CardContent>
-            </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg sm:text-xl">Export Details</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                  <p>• PDF exports are perfect for printing and archiving</p>
+                  <p>• Image exports are great for social media sharing</p>
+                  <p>• All exports include your Shayari with beautiful typography</p>
+                  <p>• Choose different themes to match your mood</p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </DialogContent>

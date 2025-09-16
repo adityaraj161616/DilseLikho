@@ -528,7 +528,7 @@ export function Dashboard() {
           viewBox="0 0 24 24"
           fill="currentColor"
         >
-          <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+          <path d="M18,20H6V4H13V9H18V20Z" />
         </svg>
       </div>
 
@@ -716,50 +716,51 @@ export function Dashboard() {
 
           <Card className="glassmorphism shadow-xl border-2 border-primary/20">
             <CardHeader className="pb-4">
-              <CardTitle className="flex items-center gap-3 text-primary font-playfair text-2xl">
-                <Filter className="w-6 h-6 text-secondary" />
+              <CardTitle className="flex items-center gap-3 text-primary font-playfair text-xl sm:text-2xl">
+                <Filter className="w-5 sm:w-6 h-5 sm:h-6 text-secondary" />
                 Filter & Search
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="relative">
-                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div className="relative sm:col-span-2 lg:col-span-1">
+                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 sm:w-5 h-4 sm:h-5" />
                   <Input
                     placeholder="Search your Shayaris..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-12 h-12 bg-card border-2 border-border hover:border-primary/30 focus:border-primary/50 transition-all duration-300 font-source-sans"
+                    className="pl-10 sm:pl-12 h-10 sm:h-12 bg-card border-2 border-border hover:border-primary/30 focus:border-primary/50 transition-all duration-300 font-source-sans text-sm sm:text-base"
                   />
                 </div>
                 <Select value={selectedMood} onValueChange={setSelectedMood}>
-                  <SelectTrigger className="h-12 bg-card border-2 border-border hover:border-primary/30 focus:border-primary/50 transition-all duration-300 font-source-sans">
+                  <SelectTrigger className="h-10 sm:h-12 bg-card border-2 border-border hover:border-primary/30 focus:border-primary/50 transition-all duration-300 font-source-sans text-sm sm:text-base">
                     <SelectValue placeholder="Filter by mood" />
                   </SelectTrigger>
                   <SelectContent className="bg-card border-2 border-border">
                     {moods.map((mood) => (
-                      <SelectItem key={mood.value} value={mood.value} className="font-source-sans">
+                      <SelectItem key={mood.value} value={mood.value} className="font-source-sans text-sm sm:text-base">
                         {mood.label}
                       </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
-                <div className="flex gap-3">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 sm:col-span-2 lg:col-span-1">
                   <Button
                     variant={showFavorites ? "default" : "outline"}
                     onClick={() => setShowFavorites(!showFavorites)}
-                    className="flex-1 h-12 font-source-sans font-semibold transition-all duration-300 hover:scale-105"
+                    className="flex-1 h-10 sm:h-12 font-source-sans font-semibold transition-all duration-300 hover:scale-105 text-sm sm:text-base"
                   >
-                    <Heart className="w-5 h-5 mr-2" />
-                    Favorites Only
+                    <Heart className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
+                    <span className="hidden sm:inline">Favorites Only</span>
+                    <span className="sm:hidden">Favorites</span>
                   </Button>
                   <Button
                     variant="outline"
                     onClick={() => router.push("/calendar")}
-                    className="h-12 border-2 border-border hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
+                    className="h-10 sm:h-12 border-2 border-border hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 px-3 sm:px-4"
                   >
-                    <Calendar className="w-5 h-5 mr-2" />
-                    Calendar
+                    <Calendar className="w-4 sm:w-5 h-4 sm:h-5 sm:mr-2" />
+                    <span className="hidden sm:inline">Calendar</span>
                   </Button>
                 </div>
               </div>
