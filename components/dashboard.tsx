@@ -636,8 +636,7 @@ export function Dashboard() {
                   }`}
                   onClick={() => setSelectedFeaturedShayari(shayari)}
                   style={{
-                    backgroundImage:
-                      "url(/placeholder.svg?height=400&width=300&query=beautiful+urdu+poetry+background+with+elegant+patterns)",
+                    backgroundImage: "url(/shayari-background.jpg)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
