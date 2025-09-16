@@ -2,11 +2,8 @@ import type { NextAuthOptions } from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import CredentialsProvider from "next-auth/providers/credentials"
 import { MongoDBAdapter } from "@auth/mongodb-adapter"
-import { MongoClient } from "mongodb"
+import clientPromise from "./mongodb-client"
 import bcrypt from "bcryptjs"
-
-const client = new MongoClient(process.env.MONGODB_URI!)
-const clientPromise = Promise.resolve(client)
 
 export const authOptions: NextAuthOptions = {
   adapter: MongoDBAdapter(clientPromise),
